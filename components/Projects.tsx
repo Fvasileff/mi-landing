@@ -104,14 +104,54 @@ function BarMockup() {
   );
 }
 
+function LandingMockup() {
+  return (
+    <div className="rounded-xl border border-white/10 bg-[#111] p-4">
+      <div className="mb-3 flex items-center gap-2 border-b border-white/5 pb-3">
+        <div className="h-2.5 w-2.5 rounded-full bg-red-500/70" />
+        <div className="h-2.5 w-2.5 rounded-full bg-amber-400/70" />
+        <div className="h-2.5 w-2.5 rounded-full bg-[#10b981]/70" />
+        <span className="ml-2 text-xs text-zinc-500">Landing Page</span>
+      </div>
+      <div className="space-y-3">
+        <div className="rounded-lg bg-[#0a0a0a] p-4">
+          <div className="h-2.5 w-2/3 rounded bg-white/20" />
+          <div className="mt-2 h-1.5 w-full rounded bg-white/10" />
+          <div className="mt-1.5 h-1.5 w-4/5 rounded bg-white/10" />
+          <div className="mt-4 inline-block rounded-md bg-[#10b981]/80 px-4 py-1.5">
+            <div className="h-1.5 w-16 rounded bg-black/30" />
+          </div>
+        </div>
+        <div className="grid grid-cols-3 gap-2">
+          {["Servicios", "Nosotros", "Contacto"].map((item) => (
+            <div key={item} className="rounded-md border border-white/5 bg-[#0a0a0a] p-2 text-center">
+              <div className="mx-auto mb-1.5 h-5 w-5 rounded bg-[#10b981]/20" />
+              <div className="h-1 w-full rounded bg-white/10" />
+              <div className="mt-1 h-1 w-3/4 mx-auto rounded bg-white/10" />
+              <p className="mt-1.5 text-[9px] text-zinc-600">{item}</p>
+            </div>
+          ))}
+        </div>
+        <div className="rounded-lg border border-white/5 bg-[#0a0a0a] p-3">
+          <div className="mb-2 h-2 w-1/3 rounded bg-white/20" />
+          <div className="h-1.5 w-full rounded bg-white/10" />
+          <div className="mt-1.5 h-1.5 w-3/4 rounded bg-white/10" />
+          <div className="mt-3 h-7 w-full rounded-md border border-white/10 bg-white/5" />
+          <div className="mt-2 h-7 w-full rounded-md bg-[#10b981]/70" />
+        </div>
+      </div>
+    </div>
+  );
+}
+
 const crmFeatures = [
-  "Dashboard con resumen: ventas del mes, clientes activos, cuotas vencidas, cobrado",
-  "Registro de ventas con financiamiento: precio, anticipo, plan de cuotas, interés",
-  "Gestión de cuotas con estados: pendiente, vencida, pagada, en mora",
+  "Dashboard con resumen: ventas del mes, clientes activos, pagos pendientes, cobrado",
+  "Registro de ventas y servicios con historial completo por cliente",
+  "Gestión de cobranzas con estados: pendiente, vencida, pagada, en mora",
   "Recordatorios automáticos por WhatsApp",
   "Reportes: cobrado, deuda vencida, próximas a vencer",
   "Gestión de clientes: búsqueda por nombre, apellido, DNI o teléfono",
-  "Catálogo de equipos con stock y precios",
+  "Catálogo de productos o servicios con precios",
 ];
 
 const planBasicoFeatures = [
@@ -133,6 +173,19 @@ const planPremiumFeatures = [
   "El pedido llega directo a cocina/caja en tiempo real",
   "Comanda impresa automáticamente por mesa",
   "Cierre de mesa con total a cobrar",
+  "Historial de ventas por mesa",
+  "Carta digital con QR (los clientes escanean y ven el menú desde su celu)",
+  "Control de stock por producto (se desactiva automáticamente al agotarse)",
+  "Roles y permisos: el mozo solo ve y gestiona sus mesas",
+];
+
+const landingFeatures = [
+  "Diseño profesional adaptado a tu marca y rubro",
+  "100% responsive: se ve bien en celular, tablet y PC",
+  "Secciones: hero, servicios, sobre vos, contacto y más",
+  "Botón directo a WhatsApp o formulario de contacto",
+  "Optimizada para cargar rápido y aparecer en Google",
+  "Deploy incluido: queda en internet desde el día 1",
 ];
 
 export default function Projects() {
@@ -157,13 +210,15 @@ export default function Projects() {
                   Disponible
                 </span>
                 <h3 className="mt-4 font-[family-name:var(--font-syne)] text-2xl font-bold text-white">
-                  Sistema de Gestión para Negocios de Celulares
+                  Sistema CRM para Negocios
                 </h3>
                 <p className="mt-3 text-zinc-400 leading-relaxed">
-                  Todo lo que necesitás para vender y financiar celulares desde un
-                  solo lugar. Controlá clientes, cuotas y stock sin planillas de
-                  Excel.
+                  Gestioná clientes, ventas y cobranzas desde un solo lugar. Dejá las planillas de Excel y tené todo organizado en un sistema hecho para tu negocio.
                 </p>
+                <div className="mt-4 flex items-baseline gap-2">
+                  <span className="text-3xl font-bold text-white">$900 USD</span>
+                  <span className="text-sm text-zinc-500">· pago único</span>
+                </div>
 
                 <ul className="mt-6 space-y-2.5">
                   {crmFeatures.map((feature) => (
@@ -242,6 +297,10 @@ export default function Projects() {
                   <h4 className="font-[family-name:var(--font-syne)] text-lg font-bold text-white">
                     Plan Básico
                   </h4>
+                  <div className="mt-2 flex items-baseline gap-2">
+                    <span className="text-2xl font-bold text-white">$600 USD</span>
+                    <span className="text-xs text-zinc-500">· pago único</span>
+                  </div>
                   <ul className="mt-4 space-y-2.5">
                     {planBasicoFeatures.map((feature) => (
                       <li
@@ -271,6 +330,10 @@ export default function Projects() {
                   <h4 className="font-[family-name:var(--font-syne)] text-lg font-bold text-white">
                     Plan Premium
                   </h4>
+                  <div className="mt-2 flex items-baseline gap-2">
+                    <span className="text-2xl font-bold text-[#10b981]">$1000 USD</span>
+                    <span className="text-xs text-zinc-500">· pago único</span>
+                  </div>
                   <ul className="mt-4 space-y-2.5">
                     {planPremiumFeatures.map((feature) => (
                       <li
@@ -294,6 +357,61 @@ export default function Projects() {
               </div>
             </div>
           </article>
+
+          {/* Landing Page Card */}
+          <article className="card-glow animate-fade-in-up animate-delay-200 overflow-hidden rounded-2xl border border-white/10 bg-[#111]/50">
+            <div className="grid gap-8 p-6 sm:p-8 lg:grid-cols-2 lg:gap-12">
+              <div>
+                <span className="inline-block rounded-full bg-[#10b981]/20 px-3 py-1 text-xs font-medium text-[#10b981]">
+                  Disponible
+                </span>
+                <h3 className="mt-4 font-[family-name:var(--font-syne)] text-2xl font-bold text-white">
+                  Landing Page para tu negocio
+                </h3>
+                <p className="mt-3 text-zinc-400 leading-relaxed">
+                  Tu negocio necesita presencia en internet. Una landing page profesional genera confianza, atrae clientes y trabaja por vos las 24 horas. Sin plantillas genéricas, hecha a medida.
+                </p>
+                <div className="mt-4 flex items-baseline gap-2">
+                  <span className="text-3xl font-bold text-white">$300 USD</span>
+                  <span className="text-sm text-zinc-500">· pago único</span>
+                </div>
+
+                <ul className="mt-6 space-y-2.5">
+                  {landingFeatures.map((feature) => (
+                    <li key={feature} className="flex gap-2.5 text-sm text-zinc-300">
+                      <CheckIcon />
+                      <span>{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+
+                <div className="mt-6 flex flex-wrap gap-2">
+                  {["Next.js", "Tailwind", "SEO", "WhatsApp"].map((tag) => (
+                    <span
+                      key={tag}
+                      className="rounded-md border border-white/10 bg-white/5 px-2.5 py-1 text-xs text-zinc-400"
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+
+                <a
+                  href={WHATSAPP_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="mt-8 inline-block rounded-lg bg-[#10b981] px-6 py-3 text-sm font-semibold text-black transition-colors hover:bg-[#0d9668]"
+                >
+                  Quiero mi landing
+                </a>
+              </div>
+
+              <div className="flex items-center">
+                <LandingMockup />
+              </div>
+            </div>
+          </article>
+
         </div>
       </div>
     </section>
